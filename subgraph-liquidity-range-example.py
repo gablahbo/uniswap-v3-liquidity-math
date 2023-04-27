@@ -12,6 +12,7 @@ import sys
 
 # default pool id is the 0.3% USDC/ETH pool
 POOL_ID = "0x8ad599c3a0ff1de082011efddc58f1908eb6e6d8"
+BLOCK = 17036554
 
 # if passed in command line, use an alternative pool ID
 if len(sys.argv) > 1:
@@ -20,7 +21,7 @@ if len(sys.argv) > 1:
 TICK_BASE = 1.0001
 
 pool_query = """query get_pools($pool_id: ID!) {
-  pools(where: {id: $pool_id}) {
+  pools(block: {number: 17036554} where: {id: $pool_id}) {
     tick
     sqrtPrice
     liquidity
